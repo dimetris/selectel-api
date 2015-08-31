@@ -187,7 +187,7 @@ class Storage(object):
                 "last-modified": dt,
                 "hash": r.headers["ETag"],
                 "content-type": r.headers["Content-Type"],
-                "downloads": int(r.headers["X-Object-Downloads"])
+                "downloads": int(r.headers.get("X-Object-Downloads", 0))
             }
         return result
 
